@@ -47,8 +47,8 @@
         <div class="hero-stats">
           <div><div class="num">5</div><div class="lbl">Säulen</div></div>
           <div><div class="num">${window.STANDARDS.length}</div><div class="lbl">RTS / ITS</div></div>
+          <div><div class="num">64</div><div class="lbl">Artikel erklärt</div></div>
           <div><div class="num">${lessons}+</div><div class="lbl">Lektionen</div></div>
-          <div><div class="num">3</div><div class="lbl">Praxis-Aufgaben</div></div>
         </div>
       </div>
       <div class="terminal" aria-hidden="true">
@@ -64,7 +64,18 @@
     </section>
 
     <div class="section-title"><h2>Die fünf Säulen</h2></div>
-    <div class="grid grid-3">${pills.slice(0, 6).map(p => `<div class="card"><div class="ico" style="font-size:1.6rem;width:48px;height:48px;display:grid;place-items:center;border-radius:12px;background:var(--panel-2);border:1px solid var(--border);margin-bottom:.6rem">${p.icon}</div><h3 style="font-size:1.05rem">${esc(p.name)}</h3><p class="muted" style="font-size:.88rem">${esc(p.art)}</p></div>`).join("")}</div>
+    ${(window.ANIM ? window.ANIM.pillars() : "")}
+    <div class="grid grid-3" style="margin-top:1.2rem">${pills.slice(0, 6).map(p => `<div class="card"><div class="ico" style="font-size:1.6rem;width:48px;height:48px;display:grid;place-items:center;border-radius:12px;background:var(--panel-2);border:1px solid var(--border);margin-bottom:.6rem">${p.icon}</div><h3 style="font-size:1.05rem">${esc(p.name)}</h3><p class="muted" style="font-size:.88rem">${esc(p.art)}</p></div>`).join("")}</div>
+
+    <div class="section-title"><h2>DORA animiert erklärt</h2><a class="link" href="#/artikel">Alle 64 Artikel →</a></div>
+    <p class="muted" style="margin-top:-.4rem">Bewegte Grafiken statt Paragraphenwüste – die Kernmechaniken auf einen Blick:</p>
+    <div style="display:grid;gap:1rem">
+      ${(window.ANIM ? window.ANIM.incidentTimeline() : "")}
+      <div class="grid grid-2">
+        ${(window.ANIM ? window.ANIM.rtoRpo() : "")}
+        ${(window.ANIM ? window.ANIM.registerFlow() : "")}
+      </div>
+    </div>
 
     <div class="section-title"><h2>Kurse</h2><a class="link" href="#/kurse">Alle anzeigen →</a></div>
     <div class="grid grid-3">${COURSES.slice(0, 6).map(courseCard).join("")}</div>
@@ -105,6 +116,63 @@
       <p class="muted" style="font-size:.85rem;margin-top:1.5rem">Neben RTS/ITS bestehen ergänzende Leitlinien der ESAs (z. B. zu aggregierten Kosten/Verlusten und zur Aufsichtskooperation). Diese Übersicht dient der Orientierung; maßgeblich ist EUR-Lex.</p>`;
   }
 
+  // ---- Artikel-Navigator (alle 64 DORA-Artikel) ----
+  const ARTS = window.ARTICLES || {};
+  const CHAPS = window.CHAPTERS || [];
+  function standardsForArticle(n) {
+    return (window.STANDARDS || []).filter(s => {
+      const nums = (s.art.match(/\d+/g) || []).map(Number);
+      return nums.includes(n);
+    });
+  }
+  const artAnim = { 6:"riskCycle", 11:"riskCycle", 12:"rtoRpo", 18:"incidentTimeline", 19:"incidentTimeline", 20:"incidentTimeline", 28:"registerFlow", 31:"oversight", 33:"oversight", 42:"oversight" };
+
+  function viewArticles() {
+    const sec = CHAPS.map(ch => {
+      let chips = "";
+      for (let n = ch.range[0]; n <= ch.range[1]; n++) {
+        const a = ARTS[n]; if (!a) continue;
+        const st = standardsForArticle(n).length;
+        chips += `<a class="art-chip" href="#/artikel/${n}"><span class="an">Art. ${n}</span><span class="at">${esc(a[0])}</span>${st ? `<span class="asb">${st} RTS/ITS</span>` : ""}</a>`;
+      }
+      return `<div class="section-title" style="margin:1.6rem 0 .5rem"><h2 style="font-size:1.1rem">Kapitel ${ch.id} · ${esc(ch.name)}</h2><span class="muted" style="font-size:.8rem">Art. ${ch.range[0]}–${ch.range[1]}</span></div>
+        <div class="art-grid">${chips}</div>`;
+    }).join("");
+    return `<div class="breadcrumb"><a href="#/">Start</a> / Artikel</div>
+      <h1>Artikel-Navigator</h1>
+      <p class="muted">Alle <strong>64 Artikel</strong> der Verordnung (EU) 2022/2554 – nach Kapiteln geordnet, mit Querverweisen zwischen den Artikeln und Verknüpfung zu den passenden RTS/ITS. Klick auf einen Artikel öffnet die Kurzerläuterung.</p>
+      <div class="callout" style="margin:1rem 0"><span class="tag">So liest du DORA</span><p>DORA ist ein zusammenhängendes System: Risikomanagement (Kap. II) liefert die Basis, Vorfälle (Kap. III) und Tests (Kap. IV) prüfen sie, Drittparteien (Kap. V) und Austausch (Kap. VI) erweitern sie. Folge den <strong>„Verwandte Artikel"</strong>-Verknüpfungen, um die Zusammenhänge zu verstehen.</p></div>
+      ${sec}
+      <p class="muted" style="font-size:.85rem;margin-top:1.5rem">Erläuterungen sind didaktische Zusammenfassungen; maßgeblich ist der amtliche Text in EUR-Lex.</p>`;
+  }
+
+  function viewArticle(nRaw) {
+    const n = parseInt(nRaw, 10); const a = ARTS[n]; if (!a) return notFound();
+    const ch = CHAPS.find(c => n >= c.range[0] && n <= c.range[1]);
+    const [title, kurz, see] = a;
+    const sts = standardsForArticle(n);
+    const relCourse = ch && ch.pillar ? COURSES.find(c => c.pillar === ch.pillar) : null;
+    const anim = artAnim[n] && window.ANIM && window.ANIM[artAnim[n]] ? window.ANIM[artAnim[n]]() : "";
+    const prevN = n > 1 ? n - 1 : null, nextN = n < 64 ? n + 1 : null;
+    const seeChips = (see && see.length) ? `<div class="key-points" style="margin-top:1.3rem"><h4>Verwandte Artikel</h4>
+      <div class="art-grid">${see.map(m => ARTS[m] ? `<a class="art-chip" href="#/artikel/${m}"><span class="an">Art. ${m}</span><span class="at">${esc(ARTS[m][0])}</span></a>` : "").join("")}</div></div>` : "";
+    const stBox = sts.length ? `<div class="key-points" style="margin-top:1.3rem"><h4>Konkretisierende RTS/ITS</h4><ul>${sts.map(s => `<li><a href="${s.eurlex}" target="_blank" rel="noopener">(EU) ${esc(s.nr)}</a> – ${esc(s.kurz)} <span class="badge">${s.typ}</span></li>`).join("")}</ul></div>` : "";
+    const courseBox = relCourse ? `<div class="callout" style="margin-top:1.3rem"><span class="tag">Passender Kurs</span><p>Vertiefe dieses Thema im Kurs <a href="#/kurs/${relCourse.id}">${esc(relCourse.title)}</a>.</p></div>` : "";
+    return `<div class="breadcrumb"><a href="#/">Start</a> / <a href="#/artikel">Artikel</a> / Art. ${n}</div>
+      <p class="muted" style="margin:0">${ch ? "Kapitel " + ch.id + " · " + esc(ch.name) : ""}</p>
+      <h1 style="margin:.2rem 0 .1rem">Artikel ${n} – ${esc(title)}</h1>
+      <p class="lead" style="margin:.4rem 0 1.1rem">${kurz}</p>
+      ${anim ? `<div style="margin:1.2rem 0">${anim}</div>` : ""}
+      ${stBox}
+      ${seeChips}
+      ${courseBox}
+      <div class="lesson-nav" style="margin-top:1.6rem">
+        ${prevN ? `<a class="btn btn-ghost" href="#/artikel/${prevN}">← Art. ${prevN}</a>` : `<a class="btn btn-ghost" href="#/artikel">← Übersicht</a>`}
+        <a class="btn btn-ghost" href="${(window.DORA_BASE||{}).eurlex || '#'}" target="_blank" rel="noopener">Amtlicher Text (EUR-Lex) ↗</a>
+        ${nextN ? `<a class="btn btn-primary" href="#/artikel/${nextN}">Art. ${nextN} →</a>` : `<a class="btn btn-primary" href="#/artikel">Zur Übersicht</a>`}
+      </div>`;
+  }
+
   function viewCourse(cid) {
     const c = byId[cid]; if (!c) return notFound();
     const pct = coursePct(c);
@@ -138,7 +206,9 @@
       <div class="lesson"><div>
         <p class="muted" style="margin:0">${c.icon} ${esc(c.title)} · Lektion ${idx + 1}/${c.lessons.length}</p>
         <h1 style="margin:.2rem 0 .1rem">${esc(l.title)}</h1><p class="muted" style="margin:0 0 1.2rem">${esc(l.subtitle || "")}</p>
+        ${l.anim && window.ANIM && window.ANIM[l.anim] ? `<div style="margin:0 0 1.3rem">${window.ANIM[l.anim]()}</div>` : ""}
         <div class="lesson-body">${l.html}</div>
+        ${l.arts && l.arts.length ? `<div class="key-points" style="margin-top:1.3rem"><h4>Artikel zum Nachschlagen</h4><div class="art-grid">${l.arts.map(n => (window.ARTICLES && window.ARTICLES[n]) ? `<a class="art-chip" href="#/artikel/${n}"><span class="an">Art. ${n}</span><span class="at">${esc(window.ARTICLES[n][0])}</span></a>` : "").join("")}</div></div>` : ""}
         <div class="lesson-nav">
           ${prev ? `<a class="btn btn-ghost" href="#/kurs/${c.id}/${prev.id}">← Zurück</a>` : `<a class="btn btn-ghost" href="#/kurs/${c.id}">← Übersicht</a>`}
           <a class="btn btn-primary" href="${nextHref}">${nextLbl}</a></div></div></div>`;
@@ -257,6 +327,8 @@
     if (p.length === 0) html = viewHome();
     else if (p[0] === "kurse") html = viewCatalog();
     else if (p[0] === "standards") html = viewStandards();
+    else if (p[0] === "artikel" && p.length === 2) html = viewArticle(p[1]);
+    else if (p[0] === "artikel") html = viewArticles();
     else if (p[0] === "kurs" && p.length === 2) html = viewCourse(p[1]);
     else if (p[0] === "kurs" && p.length === 3) html = viewLesson(p[1], p[2]);
     else if (p[0] === "aufgaben") html = viewTasks();

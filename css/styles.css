@@ -196,3 +196,14 @@ img{max-width:100%}
   .nav-toggle{display:block}
 }
 @media(max-width:560px){.grid-3,.grid-2{grid-template-columns:1fr}.stat-grid{grid-template-columns:1fr 1fr}}
+
+/* ---- Artikel-Navigator + Animationen (Enhancement 2026-11-24) ---- */
+.art-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem}
+.art-chip{display:flex;flex-direction:column;gap:.15rem;padding:.6rem .75rem;border:1px solid var(--border);border-radius:11px;background:var(--panel);text-decoration:none;transition:border-color .15s,transform .15s,background .15s}
+.art-chip:hover{border-color:var(--accent);transform:translateY(-2px);background:var(--panel-2)}
+.art-chip .an{font-size:.72rem;font-weight:800;color:var(--accent);letter-spacing:.03em}
+.art-chip .at{font-size:.9rem;color:var(--ink);line-height:1.25}
+.art-chip .asb{font-size:.68rem;color:var(--accent-2);margin-top:.15rem}
+.anim-fig{margin:.2rem 0;overflow:hidden;border-radius:14px}
+.anim-fig svg{max-width:100%}
+@media(max-width:560px){.art-grid{grid-template-columns:1fr 1fr}}

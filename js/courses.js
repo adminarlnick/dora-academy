@@ -6,7 +6,7 @@ window.COURSES = [
   duration:"ca. 45 Min", tags:["Überblick","Geltungsbereich","Governance"],
   summary:"Was DORA ist, für wen sie gilt, seit wann – und wie die fünf Säulen und die Verantwortung des Leitungsorgans zusammenhängen.",
   lessons:[
-    {id:"was-ist", title:"Was ist DORA?", subtitle:"Ziel, Rechtsnatur, Zeitplan",
+    {id:"was-ist", title:"Was ist DORA?", subtitle:"Ziel, Rechtsnatur, Zeitplan", anim:"pillars", arts:[1,2,64],
      html:`<p>DORA – der <strong>Digital Operational Resilience Act</strong> – ist die <strong>Verordnung (EU) 2022/2554</strong> über die digitale operationale Resilienz im Finanzsektor. Sie trat am 16.&nbsp;Januar 2023 in Kraft und gilt <strong>seit dem 17.&nbsp;Januar 2025</strong> unmittelbar in allen Mitgliedstaaten.</p>
      <p>Als <em>Verordnung</em> gilt DORA direkt – ohne nationale Umsetzung – und schafft erstmals einen einheitlichen EU-Rahmen dafür, dass Finanzunternehmen schwerwiegende IKT-Störungen (Cyberangriffe, Ausfälle) überstehen, darauf reagieren und sich erholen können.</p>
      <h3>Die fünf Säulen</h3>
@@ -23,7 +23,7 @@ window.COURSES = [
        <li>Fünf Säulen, konkretisiert durch RTS/ITS (Level-2).</li>
        <li>Ziel: digitale operationale Resilienz, nicht nur IT-Sicherheit.</li>
      </ul></div>`},
-    {id:"geltungsbereich", title:"Für wen gilt DORA?", subtitle:"Finanzunternehmen & IKT-Drittdienstleister",
+    {id:"geltungsbereich", title:"Für wen gilt DORA?", subtitle:"Finanzunternehmen & IKT-Drittdienstleister", arts:[2,3,4,16],
      html:`<p>DORA gilt für einen <strong>sehr breiten</strong> Kreis von <strong>Finanzunternehmen</strong> (Art.&nbsp;2) – u.&nbsp;a. Kreditinstitute, Zahlungs- und E-Geld-Institute, Wertpapierfirmen, Versicherer, Kryptowerte-Dienstleister, Handelsplätze, Zentralverwahrer, Verwalter alternativer Investmentfonds und viele mehr. Zusätzlich adressiert DORA <strong>IKT-Drittdienstleister</strong> (z.&nbsp;B. Cloud-Anbieter), für kritische Anbieter sogar mit direkter EU-Aufsicht.</p>
      <h3>Proportionalität</h3>
      <p>Die Anforderungen sind nach <strong>Größe, Risikoprofil und Komplexität</strong> abgestuft (Art.&nbsp;4). Kleine, nicht komplexe Unternehmen und bestimmte Kategorien dürfen einen <strong>vereinfachten IKT-Risikomanagementrahmen</strong> (Art.&nbsp;16) nutzen. „One size fits all" gilt nicht – aber Mindeststandards schon.</p>
@@ -41,6 +41,31 @@ window.COURSES = [
        <li>Breiter Anwendungsbereich: nahezu der gesamte Finanzsektor + IKT-Dienstleister.</li>
        <li>Proportionalität + vereinfachter Rahmen für kleine Einheiten.</li>
        <li>Das Leitungsorgan haftet und muss sich aktiv kümmern und schulen.</li>
+     </ul></div>`},
+    {id:"saeulen", title:"Die fünf Säulen im Zusammenspiel", subtitle:"Wie die Teile ineinandergreifen", anim:"riskCycle", arts:[6,17,24,28,45],
+     html:`<p>DORA ist kein Katalog unabhängiger Pflichten, sondern ein <strong>geschlossener Kreislauf</strong>. Die fünf Säulen verstärken sich gegenseitig:</p>
+     <ul>
+       <li><strong>Säule 1 (Risikomanagement, Art.&nbsp;5–16)</strong> ist das Fundament: Sie legt fest, wie Risiken identifiziert, geschützt, erkannt und behandelt werden.</li>
+       <li><strong>Säule 2 (Vorfälle, Art.&nbsp;17–23)</strong> greift, wenn trotz Schutz etwas passiert – und speist über <em>Lessons Learned</em> (Art.&nbsp;13) zurück in Säule&nbsp;1.</li>
+       <li><strong>Säule 3 (Tests, Art.&nbsp;24–27)</strong> prüft, ob das Fundament hält, <em>bevor</em> ein echter Angriff es tut.</li>
+       <li><strong>Säule 4 (Drittparteien, Art.&nbsp;28–44)</strong> dehnt all das auf Dienstleister aus – denn ausgelagert ist nicht ausgelagerte Verantwortung.</li>
+       <li><strong>Säule 5 (Austausch, Art.&nbsp;45)</strong> macht aus Einzelerfahrung kollektive Abwehr.</li>
+     </ul>
+     <div class="callout"><span class="tag">Denkmodell</span><p>Lies DORA als Zyklus: <strong>Identifizieren → Schützen → Erkennen → Reagieren → Wiederherstellen → Lernen</strong> – und dann wieder von vorn. Jede Säule ist ein Abschnitt dieses Kreislaufs, auch über die Unternehmensgrenze hinaus.</p></div>`},
+    {id:"level2", title:"Level 2: RTS & ITS verstehen", subtitle:"Wo die Details wirklich stehen", arts:[15,18,20,30,31,41],
+     html:`<p>Der DORA-Verordnungstext (Level&nbsp;1) nennt das <em>Was</em>. Das <em>Wie</em> steht in den <strong>technischen Standards (Level&nbsp;2)</strong>, die die ESAs (EBA, ESMA, EIOPA) entwickeln und die die EU-Kommission erlässt.</p>
+     <h3>Zwei Typen</h3>
+     <ul>
+       <li><strong>RTS</strong> (Regulatory Technical Standards) – als <em>delegierte</em> Verordnungen: inhaltliche Konkretisierung, z.&nbsp;B. welche Kriterien einen Vorfall „schwerwiegend" machen.</li>
+       <li><strong>ITS</strong> (Implementing Technical Standards) – als <em>Durchführungs</em>verordnungen: einheitliche Formulare, Vorlagen und Verfahren, z.&nbsp;B. das Meldeformular oder das Informationsregister.</li>
+     </ul>
+     <p>Jeder RTS/ITS hängt an einer <strong>Ermächtigungsnorm</strong> in DORA (z.&nbsp;B. Art.&nbsp;18 Abs.&nbsp;3 → RTS&nbsp;2024/1772). Wer eine Pflicht konkret umsetzen will, muss fast immer in den passenden Level-2-Text schauen.</p>
+     <div class="callout warn"><span class="tag">Praxis</span><p>Im Artikel-Navigator siehst du zu jedem Artikel direkt die <strong>konkretisierenden RTS/ITS</strong> – so findest du vom Grundsatz schnell zum Detail.</p></div>
+     <p>👉 <a href="#/standards">Alle RTS &amp; ITS ansehen</a> · <a href="#/artikel">Artikel-Navigator öffnen</a></p>
+     <div class="key-points"><h4>Das Wichtigste</h4><ul>
+       <li>Level 1 = DORA selbst (das Was); Level 2 = RTS/ITS (das Wie).</li>
+       <li>RTS konkretisiert Inhalte, ITS standardisiert Formulare/Verfahren.</li>
+       <li>Jeder Standard hängt an einer Ermächtigungsnorm in DORA.</li>
      </ul></div>`}
   ],
   quiz:[
@@ -56,7 +81,7 @@ window.COURSES = [
   duration:"ca. 50 Min", tags:["Art. 5–16","RTS 2024/1774","BCM"],
   summary:"Der IKT-Risikomanagementrahmen: Strategie, Schutz, Erkennung, Reaktion, Wiederherstellung – konkretisiert durch RTS 2024/1774.",
   lessons:[
-    {id:"rahmen", title:"Der IKT-Risikomanagementrahmen", subtitle:"Art. 6–8",
+    {id:"rahmen", title:"Der IKT-Risikomanagementrahmen", subtitle:"Art. 6–8", anim:"riskCycle", arts:[5,6,7,8],
      html:`<p>Jedes Finanzunternehmen braucht einen <strong>soliden, dokumentierten IKT-Risikomanagementrahmen</strong> (Art.&nbsp;6) als Teil des Gesamtrisikomanagements. Er muss mindestens jährlich und nach größeren Vorfällen überprüft werden.</p>
      <h3>Kernbausteine</h3>
      <ul>
@@ -66,11 +91,11 @@ window.COURSES = [
      </ul>
      <p>Der delegierte <strong>RTS 2024/1774</strong> präzisiert Tools, Methoden, Prozesse und Richtlinien – von Zugriffsrechten über Kryptografie bis Netzwerk- und Change-Management.</p>
      <div class="callout"><span class="tag">Kernbegriff</span><p><strong>Kritische oder wichtige Funktion:</strong> eine Funktion, deren Ausfall die Finanzstabilität, die solide Fortführung des Geschäfts oder die Erfüllung aufsichtlicher Pflichten wesentlich beeinträchtigen würde. Dieser Begriff zieht sich durch ganz DORA.</p></div>`},
-    {id:"schutz-erkennung", title:"Schutz, Prävention und Erkennung", subtitle:"Art. 9–10",
+    {id:"schutz-erkennung", title:"Schutz, Prävention und Erkennung", subtitle:"Art. 9–10", arts:[9,10],
      html:`<p><strong>Schutz & Prävention</strong> (Art.&nbsp;9): Sicherheitsrichtlinien, starke Authentifizierung, Verschlüsselung, Zugriffsmanagement nach dem Prinzip der geringsten Rechte, sichere Konfiguration, Patch- und Schwachstellenmanagement.</p>
      <p><strong>Erkennung</strong> (Art.&nbsp;10): Mechanismen, um anomale Aktivitäten und IKT-Vorfälle <em>früh</em> zu erkennen – mit mehreren Kontrollebenen, Alarmierungsschwellen und Protokollierung, damit nichts unbemerkt bleibt.</p>
      <div class="callout warn"><span class="tag">Praxis</span><p>Erkennung ist nur so gut wie die Reaktion darauf. DORA verlangt definierte Schwellen und klare Eskalationswege – Logs, die niemand auswertet, erfüllen die Anforderung nicht.</p></div>`},
-    {id:"reaktion-bcm", title:"Reaktion, Wiederherstellung & Backups", subtitle:"Art. 11–13",
+    {id:"reaktion-bcm", title:"Reaktion, Wiederherstellung & Backups", subtitle:"Art. 11–13", anim:"rtoRpo", arts:[11,12,13,14],
      html:`<p>Säule 1 endet nicht bei der Erkennung, sondern verlangt <strong>Weitermachen-Können</strong>.</p>
      <h3>Business Continuity (Art. 11–12)</h3>
      <ul>
@@ -84,7 +109,13 @@ window.COURSES = [
        <li>Der Rahmen deckt den vollen Zyklus: Identifizieren → Schützen → Erkennen → Reagieren → Wiederherstellen → Lernen.</li>
        <li>Backups müssen getrennt, geschützt und <em>getestet</em> sein.</li>
        <li>RTS 2024/1774 liefert die konkreten technischen Anforderungen.</li>
-     </ul></div>`}
+     </ul></div>`},
+    {id:"vereinfacht", title:"Der vereinfachte Rahmen", subtitle:"Art. 16 · für kleine, nicht komplexe Einheiten", arts:[4,16,15],
+     html:`<p>Nicht jedes Unternehmen muss den vollen Rahmen (Art.&nbsp;5–15) umsetzen. Für bestimmte <strong>kleine und nicht komplexe</strong> Finanzunternehmen – etwa kleine Wertpapierfirmen, kleine Zahlungsinstitute oder Einrichtungen der betrieblichen Altersversorgung mit wenig Versorgungsanwärtern – gilt ein <strong>vereinfachter IKT-Risikomanagementrahmen</strong> (Art.&nbsp;16).</p>
+     <h3>Was bleibt, was entfällt</h3>
+     <p>Der vereinfachte Rahmen verlangt weiterhin die Kernlogik – IKT-Risiken identifizieren, schützen, überwachen, auf Vorfälle reagieren, Business Continuity sichern und den Rahmen überprüfen –, aber mit <strong>geringerer Granularität</strong>. Details regelt ebenfalls <strong>RTS 2024/1774</strong> (eigener Abschnitt für den vereinfachten Rahmen).</p>
+     <div class="callout"><span class="tag">Proportionalität konkret</span><p>Art.&nbsp;4 (Verhältnismäßigkeit) ist der Hebel: Umfang und Tiefe richten sich nach Größe, Risikoprofil und Komplexität. „Vereinfacht" heißt angemessen – nicht „befreit".</p></div>
+     <div class="callout warn"><span class="tag">Achtung</span><p>Ob ein Unternehmen den vereinfachten Rahmen nutzen <em>darf</em>, ergibt sich aus Art.&nbsp;16 Abs.&nbsp;1 – nicht jede „kleine" Firma fällt darunter. Im Zweifel prüfen.</p></div>`}
   ],
   quiz:[
     {q:"Welcher RTS konkretisiert den IKT-Risikomanagementrahmen?", options:["RTS 2024/1772","RTS 2024/1774","ITS 2024/2956","RTS 2025/1190"], answer:1, explain:"RTS (EU) 2024/1774 legt Tools, Methoden, Prozesse und Richtlinien fest (inkl. vereinfachtem Rahmen)."},
@@ -99,10 +130,10 @@ window.COURSES = [
   duration:"ca. 55 Min", tags:["Art. 17–23","RTS 2024/1772","RTS 2025/301","ITS 2025/302"],
   summary:"Vorfälle erkennen, klassifizieren und fristgerecht melden – inkl. Klassifizierungskriterien und Meldefristen. Passende Übungen im Aufgabenbereich.",
   lessons:[
-    {id:"prozess", title:"Vorfallmanagement-Prozess", subtitle:"Art. 17",
+    {id:"prozess", title:"Vorfallmanagement-Prozess", subtitle:"Art. 17", arts:[17,10,23],
      html:`<p>Finanzunternehmen müssen einen <strong>IKT-Vorfallmanagementprozess</strong> einrichten, um IKT-bezogene Vorfälle zu erkennen, zu steuern und zu melden (Art.&nbsp;17). Dazu gehören: Erfassung/Protokollierung, Einstufung nach Priorität, Rollen, Eskalation, Ursachenanalyse und Kommunikation.</p>
      <p>Ein <strong>IKT-bezogener Vorfall</strong> ist ein Ereignis, das die Sicherheit von Netzwerk-/Informationssystemen beeinträchtigt und nachteilige Auswirkungen auf die Verfügbarkeit, Authentizität, Integrität oder Vertraulichkeit von Daten oder Diensten hat.</p>`},
-    {id:"klassifizierung", title:"Klassifizierung schwerwiegender Vorfälle", subtitle:"Art. 18 · RTS 2024/1772",
+    {id:"klassifizierung", title:"Klassifizierung schwerwiegender Vorfälle", subtitle:"Art. 18 · RTS 2024/1772", arts:[18,17],
      html:`<p>Nicht jeder Vorfall ist meldepflichtig – nur <strong>schwerwiegende</strong>. Ob ein Vorfall „schwerwiegend" (major) ist, bestimmt sich nach den Kriterien des <strong>RTS 2024/1772</strong>.</p>
      <h3>Die Klassifizierungskriterien (Art. 18 Abs. 1)</h3>
      <ul>
@@ -116,7 +147,7 @@ window.COURSES = [
      </ul>
      <div class="callout"><span class="tag">So funktioniert es</span><p>Der RTS definiert <strong>Wesentlichkeitsschwellen</strong> je Kriterium und eine Logik, ab wann ein Vorfall als schwerwiegend gilt (z.&nbsp;B. Betroffenheit kritischer Dienste <em>oder</em> das Überschreiten mehrerer primärer/sekundärer Schwellen).</p></div>
      <p>👉 Übe das im Aufgabenbereich: <a href="#/aufgabe/klassifizierung">Vorfall-Klassifizierung</a> mit generierten Fällen.</p>`},
-    {id:"meldung", title:"Meldung & Fristen", subtitle:"Art. 19 · RTS 2025/301 · ITS 2025/302",
+    {id:"meldung", title:"Meldung & Fristen", subtitle:"Art. 19 · RTS 2025/301 · ITS 2025/302", anim:"incidentTimeline", arts:[19,20,21,22],
      html:`<p>Schwerwiegende Vorfälle sind der <strong>zuständigen Behörde</strong> zu melden (Art.&nbsp;19) – in <strong>drei Stufen</strong>:</p>
      <ol>
        <li><strong>Erstmeldung (initial notification):</strong> unverzüglich, sehr zeitnah nach Einstufung als schwerwiegend.</li>
@@ -145,7 +176,7 @@ window.COURSES = [
   duration:"ca. 40 Min", tags:["Art. 24–27","RTS 2025/1190","TLPT"],
   summary:"Vom regelmäßigen Testprogramm bis zu bedrohungsorientierten Penetrationstests (TLPT) für die größten Häuser.",
   lessons:[
-    {id:"programm", title:"Das Testprogramm", subtitle:"Art. 24–25",
+    {id:"programm", title:"Das Testprogramm", subtitle:"Art. 24–25", arts:[24,25],
      html:`<p>Finanzunternehmen müssen ein <strong>risikobasiertes Programm zum Testen der digitalen operationalen Resilienz</strong> unterhalten (Art.&nbsp;24). Es umfasst ein Spektrum von Tests – angemessen zu Größe und Risiko.</p>
      <h3>Typische Testarten (Art. 25)</h3>
      <ul>
@@ -155,7 +186,7 @@ window.COURSES = [
        <li>Szenariobasierte Tests, Kompatibilitäts- und Performance-Tests</li>
      </ul>
      <p>Kritische IKT-Systeme sind <strong>mindestens jährlich</strong> zu testen. Festgestellte Schwächen sind priorisiert zu beheben.</p>`},
-    {id:"tlpt", title:"Bedrohungsorientierte Penetrationstests (TLPT)", subtitle:"Art. 26–27 · RTS 2025/1190",
+    {id:"tlpt", title:"Bedrohungsorientierte Penetrationstests (TLPT)", subtitle:"Art. 26–27 · RTS 2025/1190", arts:[26,27],
      html:`<p><strong>TLPT</strong> (Threat-Led Penetration Testing) sind realistische Angriffssimulationen gegen <em>produktive</em> Systeme, angelehnt am europäischen Rahmen <strong>TIBER-EU</strong>. Sie sind <strong>nicht für alle</strong> Pflicht, sondern nur für Unternehmen, die die Behörden anhand von Kriterien (Bedeutung, Risikoprofil, Systemrelevanz) bestimmen.</p>
      <h3>Eckpunkte</h3>
      <ul>
@@ -169,6 +200,22 @@ window.COURSES = [
        <li>Alle: regelmäßiges, risikobasiertes Testprogramm; kritische Systeme jährlich.</li>
        <li>Nur bestimmte, von der Behörde benannte Häuser: TLPT alle 3 Jahre.</li>
        <li>TLPT lehnt sich an TIBER-EU an; RTS 2025/1190 liefert die Details.</li>
+     </ul></div>`},
+    {id:"ergebnisse", title:"Von der Schwachstelle zur Behebung", subtitle:"Was nach dem Test zählt", arts:[25,26,13],
+     html:`<p>Ein Test ist kein Selbstzweck – entscheidend ist, was danach passiert. DORA verlangt, dass festgestellte Schwächen <strong>priorisiert und nachweislich behoben</strong> werden.</p>
+     <h3>Der Zyklus nach dem Test</h3>
+     <ol>
+       <li><strong>Befunde bewerten</strong> – Schweregrad, Ausnutzbarkeit, betroffene kritische/wichtige Funktionen.</li>
+       <li><strong>Maßnahmen priorisieren</strong> – kritische Lücken zuerst, mit Verantwortlichen und Fristen.</li>
+       <li><strong>Beheben &amp; nachtesten</strong> – Wirksamkeit bestätigen, nicht nur Tickets schließen.</li>
+       <li><strong>Lernen (Art.&nbsp;13)</strong> – Muster erkennen und in Risikomanagement, Schulung und Architektur zurückspielen.</li>
+     </ol>
+     <p>Bei <strong>TLPT</strong> schließt sich eine formale <strong>Behebungs- und Abschlussphase</strong> an, inkl. Abschlussbericht und – je nach Rahmen – einer behördlichen Bestätigung der ordnungsgemäßen Durchführung.</p>
+     <div class="callout warn"><span class="tag">Typischer Fehler</span><p>Testergebnisse „zur Kenntnis nehmen" reicht nicht. Ohne dokumentierte, nachgetestete Behebung bleibt das Testprogramm formal unvollständig.</p></div>
+     <div class="key-points"><h4>Das Wichtigste</h4><ul>
+       <li>Tests münden in priorisierte, nachgetestete Behebung – nicht nur in Berichte.</li>
+       <li>TLPT hat eine formale Behebungs-/Abschlussphase.</li>
+       <li>Erkenntnisse fließen über Art. 13 in den Rahmen zurück.</li>
      </ul></div>`}
   ],
   quiz:[
@@ -184,7 +231,7 @@ window.COURSES = [
   duration:"ca. 55 Min", tags:["Art. 28–30","RTS 2024/1773","RTS 2025/532","ITS 2024/2956"],
   summary:"Auslagerungen an IKT-Dienstleister steuern: Grundprinzipien, Vertragspflichten, Unterauftragsvergabe und das Informationsregister.",
   lessons:[
-    {id:"prinzipien", title:"Grundprinzipien & Strategie", subtitle:"Art. 28",
+    {id:"prinzipien", title:"Grundprinzipien & Strategie", subtitle:"Art. 28", arts:[28,29,5],
      html:`<p>IKT-Dienstleister (v.&nbsp;a. Cloud) sind aus dem Finanzbetrieb nicht mehr wegzudenken – und ein zentrales Risiko. DORA verlangt, das <strong>IKT-Drittparteienrisiko</strong> als integralen Teil des IKT-Risikomanagements zu steuern (Art.&nbsp;28).</p>
      <h3>Kernpflichten</h3>
      <ul>
@@ -194,7 +241,7 @@ window.COURSES = [
        <li>Besondere Sorgfalt, wenn <strong>kritische oder wichtige Funktionen</strong> betroffen sind.</li>
      </ul>
      <div class="callout"><span class="tag">Prinzip</span><p>Auslagern heißt nicht Verantwortung abgeben: Das Finanzunternehmen bleibt <strong>voll verantwortlich</strong> für die ausgelagerte Funktion.</p></div>`},
-    {id:"vertraege", title:"Vertragspflichten & Unterauftrag", subtitle:"Art. 30 · RTS 2024/1773 · RTS 2025/532",
+    {id:"vertraege", title:"Vertragspflichten & Unterauftrag", subtitle:"Art. 30 · RTS 2024/1773 · RTS 2025/532", arts:[30,28],
      html:`<p>Art.&nbsp;30 schreibt <strong>Mindestvertragsinhalte</strong> vor – strenger, wenn kritische/wichtige Funktionen betroffen sind. Dazu zählen u.&nbsp;a.:</p>
      <ul>
        <li>klare Leistungsbeschreibung, Service-Level und Standorte der Datenverarbeitung,</li>
@@ -205,7 +252,7 @@ window.COURSES = [
      </ul>
      <p>Der <strong>RTS 2024/1773</strong> konkretisiert die Leitlinie/Policy für solche Verträge, der <strong>RTS 2025/532</strong> die Anforderungen an die <strong>Unterauftragsvergabe (Subcontracting)</strong> kritischer/wichtiger Funktionen.</p>
      <div class="callout warn"><span class="tag">Falle</span><p>Standard-AGB vieler Cloud-Anbieter erfüllen die DORA-Vertragspflichten oft <em>nicht</em> – insbesondere Audit- und Ausstiegsrechte müssen aktiv nachverhandelt werden.</p></div>`},
-    {id:"register", title:"Das Informationsregister", subtitle:"Art. 28 Abs. 3 · ITS 2024/2956",
+    {id:"register", title:"Das Informationsregister", subtitle:"Art. 28 Abs. 3 · ITS 2024/2956", anim:"registerFlow", arts:[28,29],
      html:`<p>Jedes Finanzunternehmen führt ein <strong>Informationsregister</strong> (Register of Information) über <em>alle</em> vertraglichen Vereinbarungen zur Nutzung von IKT-Dienstleistungen – auf Einzel-, teil- und konsolidierter Ebene. Die Aufsicht kann es anfordern; es wird in standardisierter Form (meist jährlich) übermittelt.</p>
      <h3>Was drin steht (ITS 2024/2956)</h3>
      <p>Das ITS definiert <strong>Standardvorlagen</strong> mit verknüpften Tabellen (z.&nbsp;B. zur meldenden Einheit, zu den Vereinbarungen, zu den IKT-Drittdienstleistern, zu den gestützten Funktionen und deren Kritikalität, zu Unterauftragnehmern). Jeder Dienstleister wird u.&nbsp;a. über einen <strong>LEI</strong> (Legal Entity Identifier) eindeutig identifiziert.</p>
@@ -230,18 +277,30 @@ window.COURSES = [
   duration:"ca. 35 Min", tags:["Art. 31–44","RTS 2024/1502","RTS 2025/295"],
   summary:"Wie kritische IKT-Drittdienstleister (CTPP) bestimmt werden und wie die neue EU-Aufsicht über sie funktioniert.",
   lessons:[
-    {id:"ctpp", title:"Kritische Drittdienstleister (CTPP)", subtitle:"Art. 31 · RTS 2024/1502",
+    {id:"ctpp", title:"Kritische Drittdienstleister (CTPP)", subtitle:"Art. 31 · RTS 2024/1502", arts:[31,32],
      html:`<p>DORA schafft etwas Neues: eine <strong>direkte EU-Aufsicht</strong> über besonders wichtige IKT-Anbieter. Die ESAs benennen <strong>kritische IKT-Drittdienstleister (CTPP)</strong> anhand von Kriterien wie der systemischen Bedeutung, der Zahl/Bedeutung der abhängigen Finanzunternehmen und der Substituierbarkeit.</p>
      <p>Der <strong>RTS 2024/1502</strong> präzisiert diese <strong>Einstufungskriterien</strong> (Art.&nbsp;31 Abs.&nbsp;2). Für jeden CTPP wird eine der ESAs als <strong>federführende Überwacher (Lead Overseer)</strong> bestimmt.</p>
      <div class="callout"><span class="tag">Neu</span><p>Erstmals werden IKT-Anbieter (z.&nbsp;B. große Cloud-Hyperscaler) <em>direkt</em> auf EU-Ebene beaufsichtigt – nicht nur indirekt über ihre Finanzkunden.</p></div>`},
-    {id:"oversight", title:"Der Oversight-Rahmen", subtitle:"Art. 32–44 · RTS 2025/295",
+    {id:"oversight", title:"Der Oversight-Rahmen", subtitle:"Art. 32–44 · RTS 2025/295", anim:"oversight", arts:[32,33,34,35,41,42],
      html:`<p>Der <strong>Lead Overseer</strong> kann gegenüber CTPP u.&nbsp;a. Informationen anfordern, Untersuchungen und Vor-Ort-Prüfungen durchführen und <strong>Empfehlungen</strong> aussprechen – etwa zu Sicherheit, Subcontracting oder Risikokonzentration. Folgt ein CTPP den Empfehlungen nicht, drohen <strong>Zwangsgelder</strong>, und Finanzunternehmen müssen die Nutzung ggf. einschränken.</p>
      <p>Der <strong>RTS 2025/295</strong> harmonisiert die <strong>Bedingungen für die Durchführung der Überwachungstätigkeiten</strong> (wie der Lead Overseer prüft, zusammenarbeitet und berichtet).</p>
      <div class="key-points"><h4>Das Wichtigste</h4><ul>
        <li>ESAs benennen CTPP nach RTS 2024/1502; ein Lead Overseer wird zugeordnet.</li>
        <li>Direkte EU-Aufsicht mit Prüf-, Empfehlungs- und Sanktionsbefugnissen.</li>
        <li>RTS 2025/295 regelt die Durchführung der Aufsicht.</li>
-     </ul></div>`}
+     </ul></div>`},
+    {id:"befugnisse", title:"Befugnisse, Gebühren & Folgen", subtitle:"Art. 35–43", arts:[35,37,38,39,40,43],
+     html:`<p>Damit die Aufsicht Zähne hat, stattet DORA den Lead Overseer mit einem abgestuften <strong>Befugnis-Katalog</strong> aus.</p>
+     <h3>Die Werkzeuge des Lead Overseer</h3>
+     <ul>
+       <li><strong>Auskunftsersuchen (Art.&nbsp;37)</strong> – Informationen und Unterlagen anfordern.</li>
+       <li><strong>Allgemeine Untersuchungen (Art.&nbsp;38)</strong> – systematische Prüfungen beim CTPP.</li>
+       <li><strong>Inspektionen (Art.&nbsp;39)</strong> – Vor-Ort-Prüfungen, auch in Rechenzentren.</li>
+       <li><strong>Laufende Überwachung (Art.&nbsp;40)</strong> – fortlaufende Beobachtung statt Momentaufnahme.</li>
+       <li><strong>Empfehlungen</strong> – verbindlich adressiert; bei Nichtbefolgung <strong>Zwangsgelder</strong>.</li>
+     </ul>
+     <p>Die <strong>Überwachungsgebühren (Art.&nbsp;43)</strong> tragen die CTPP selbst – die Aufsicht finanziert sich also durch die Beaufsichtigten. Befolgt ein CTPP Empfehlungen dauerhaft nicht, können Behörden Finanzunternehmen auffordern, die Nutzung dieses Anbieters für kritische/wichtige Funktionen <strong>auszusetzen oder zu beenden</strong> (Art.&nbsp;42) – das schärfste Schwert des Rahmens.</p>
+     <div class="callout"><span class="tag">Kette der Durchsetzung</span><p>CTPP folgt Empfehlung nicht → Zwangsgeld → nationale Behörden setzen bei den Finanzunternehmen an → im Extremfall Ausstieg aus dem Anbieter. Der Druck wird über die Kunden weitergereicht.</p></div>`}
   ],
   quiz:[
     {q:"Was ist ein CTPP?", options:["Ein Finanzprodukt","Ein kritischer IKT-Drittdienstleister unter EU-Aufsicht","Ein Meldeformular","Eine Testmethode"], answer:1, explain:"CTPP = Critical ICT Third-Party Provider, von den ESAs benannt und direkt beaufsichtigt."},
@@ -256,7 +315,7 @@ window.COURSES = [
   duration:"ca. 20 Min", tags:["Art. 45"],
   summary:"Freiwilliger, vertrauensvoller Austausch über Cyberbedrohungen – damit nicht jeder dieselben Angriffe allein lernt.",
   lessons:[
-    {id:"sharing", title:"Austausch über Cyberbedrohungen", subtitle:"Art. 45",
+    {id:"sharing", title:"Austausch über Cyberbedrohungen", subtitle:"Art. 45", arts:[45,47,49],
      html:`<p>Die fünfte Säule ist die kürzeste: DORA <strong>ermöglicht</strong> (nicht erzwingt) den <strong>Austausch von Informationen und Erkenntnissen über Cyberbedrohungen</strong> zwischen Finanzunternehmen (Art.&nbsp;45) – etwa Indikatoren für Kompromittierung (IOCs), Taktiken, Techniken und Verfahren der Angreifer (TTPs), Warnungen und Konfigurationshinweise.</p>
      <h3>Bedingungen</h3>
      <ul>
