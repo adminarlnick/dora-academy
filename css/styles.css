@@ -207,3 +207,17 @@ img{max-width:100%}
 .anim-fig{margin:.2rem 0;overflow:hidden;border-radius:14px}
 .anim-fig svg{max-width:100%}
 @media(max-width:560px){.art-grid{grid-template-columns:1fr 1fr}}
+
+/* ---- Amtlicher Artikeltext inline (2026-11-24) ---- */
+.lawtext{border:1px solid var(--border);border-radius:14px;background:var(--panel);margin:1.4rem 0;padding:0 1.15rem}
+.lawtext>summary{cursor:pointer;padding:.95rem .1rem;font-weight:700;color:var(--accent-2);list-style:none;display:flex;align-items:center;gap:.5rem}
+.lawtext>summary::-webkit-details-marker{display:none}
+.lawtext>summary::before{content:"§";font-size:1.1rem;color:var(--accent)}
+.lawtext>summary::after{content:"▾";margin-left:auto;color:var(--muted);transition:transform .2s}
+.lawtext[open]>summary::after{transform:rotate(180deg)}
+.lawbody{padding:.3rem 0 1.1rem;border-top:1px solid var(--border)}
+.lawbody p{margin:.45rem 0;line-height:1.62;color:var(--ink);font-size:.95rem}
+.lawbody .lp{margin-top:1rem}
+.lawbody .li{margin-left:1.4rem}
+.lawbody .lii{margin-left:2.8rem}
+.lawbody b{color:var(--accent)}

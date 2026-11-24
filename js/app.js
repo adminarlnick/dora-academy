@@ -158,17 +158,19 @@
       <div class="art-grid">${see.map(m => ARTS[m] ? `<a class="art-chip" href="#/artikel/${m}"><span class="an">Art. ${m}</span><span class="at">${esc(ARTS[m][0])}</span></a>` : "").join("")}</div></div>` : "";
     const stBox = sts.length ? `<div class="key-points" style="margin-top:1.3rem"><h4>Konkretisierende RTS/ITS</h4><ul>${sts.map(s => `<li><a href="${s.eurlex}" target="_blank" rel="noopener">(EU) ${esc(s.nr)}</a> – ${esc(s.kurz)} <span class="badge">${s.typ}</span></li>`).join("")}</ul></div>` : "";
     const courseBox = relCourse ? `<div class="callout" style="margin-top:1.3rem"><span class="tag">Passender Kurs</span><p>Vertiefe dieses Thema im Kurs <a href="#/kurs/${relCourse.id}">${esc(relCourse.title)}</a>.</p></div>` : "";
+    const law = window.ARTICLE_TEXT && window.ARTICLE_TEXT[n] ? `<details class="lawtext" open><summary>Amtlicher Wortlaut – Artikel ${n}</summary><div class="lawbody">${window.ARTICLE_TEXT[n]}</div></details>` : "";
     return `<div class="breadcrumb"><a href="#/">Start</a> / <a href="#/artikel">Artikel</a> / Art. ${n}</div>
       <p class="muted" style="margin:0">${ch ? "Kapitel " + ch.id + " · " + esc(ch.name) : ""}</p>
       <h1 style="margin:.2rem 0 .1rem">Artikel ${n} – ${esc(title)}</h1>
       <p class="lead" style="margin:.4rem 0 1.1rem">${kurz}</p>
       ${anim ? `<div style="margin:1.2rem 0">${anim}</div>` : ""}
+      ${law}
       ${stBox}
       ${seeChips}
       ${courseBox}
       <div class="lesson-nav" style="margin-top:1.6rem">
         ${prevN ? `<a class="btn btn-ghost" href="#/artikel/${prevN}">← Art. ${prevN}</a>` : `<a class="btn btn-ghost" href="#/artikel">← Übersicht</a>`}
-        <a class="btn btn-ghost" href="${(window.DORA_BASE||{}).eurlex || '#'}" target="_blank" rel="noopener">Amtlicher Text (EUR-Lex) ↗</a>
+        <a class="btn btn-ghost" href="${(window.DORA_BASE||{}).eurlex || '#'}" target="_blank" rel="noopener">Bei EUR-Lex prüfen ↗</a>
         ${nextN ? `<a class="btn btn-primary" href="#/artikel/${nextN}">Art. ${nextN} →</a>` : `<a class="btn btn-primary" href="#/artikel">Zur Übersicht</a>`}
       </div>`;
   }
